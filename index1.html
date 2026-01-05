@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="ar" dir="rtl" class="h-full">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>انتظرونا قريباً</title>
+  <script src="/_sdk/element_sdk.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+  <style>
+        body {
+            box-sizing: border-box;
+        }
+        
+        * {
+            font-family: 'IBM Plex Sans Arabic', sans-serif;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #18325B 0%, #24ABAD 100%);
+            background-size: 200% 200%;
+            animation: gradient-shift 8s ease infinite;
+        }
+        
+        @keyframes gradient-shift {
+            0%, 100% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+        }
+        
+        .hourglass-animation {
+            animation: hourglass-flip 10s ease-in-out infinite;
+        }
+        
+        @keyframes hourglass-flip {
+            0%, 45% {
+                transform: rotate(0deg);
+            }
+            50%, 95% {
+                transform: rotate(180deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+        
+        .fade-in {
+            animation: fade-in 1s ease-in;
+        }
+        
+        @keyframes fade-in {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .phone-link {
+            transition: all 0.3s ease;
+        }
+        
+        .phone-link:hover {
+            transform: translateY(-2px);
+        }
+        
+        .phone-icon {
+            animation: phone-ring 25s ease-in-out infinite;
+        }
+        
+        @keyframes phone-ring {
+            0%, 96% {
+                transform: rotate(0deg);
+            }
+            96.5%, 97.5% {
+                transform: rotate(-15deg);
+            }
+            97%, 98% {
+                transform: rotate(15deg);
+            }
+            98.5%, 99% {
+                transform: rotate(-15deg);
+            }
+            99.5%, 100% {
+                transform: rotate(0deg);
+            }
+        }
+    </style>
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+ </head>
+ <body class="h-full">
+  <div id="app" class="gradient-bg h-full w-full flex items-center justify-center overflow-auto">
+   <div class="text-center px-8 py-12 fade-in"><!-- العنوان الرئيسي -->
+    <h1 id="main-title" class="text-6xl font-bold text-white mb-6">
+     <div class="inline-block hourglass-animation mb-4">
+      <svg class="w-24 h-24 mx-auto" viewbox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg"><!-- الإطار الخارجي للساعة --> <path d="M35 15 L85 15 L80 25 L40 25 Z" fill="white" opacity="0.95" stroke="white" stroke-width="1.5" /> <path d="M40 85 L35 95 L85 95 L80 85 Z" fill="white" opacity="0.95" stroke="white" stroke-width="1.5" /> <!-- الزجاج العلوي --> <path d="M40 25 L60 60 L80 25 Z" fill="white" opacity="0.3" stroke="white" stroke-width="1.5" /> <!-- الزجاج السفلي --> <path d="M60 60 L40 85 L80 85 Z" fill="white" opacity="0.85" stroke="white" stroke-width="1.5" /> <!-- الرمل العلوي --> <path d="M45 28 L60 55 L75 28 Z" fill="white" opacity="0.6" /> <!-- الرمل السفلي --> <ellipse cx="60" cy="82" rx="15" ry="5" fill="white" opacity="0.9" /> <!-- نقطة الرمل المتساقط --> <circle cx="60" cy="60" r="1.5" fill="white" opacity="0.8">
+        <animate attributename="cy" values="60;65;70;75;80;80;60" dur="3s" repeatcount="indefinite" />
+        <animate attributename="opacity" values="0.8;0.8;0.8;0.8;0;0;0.8" dur="3s" repeatcount="indefinite" />
+       </circle> <!-- خطوط زخرفية --> <line x1="32" y1="15" x2="32" y2="25" stroke="white" stroke-width="2" opacity="0.7" /> <line x1="88" y1="15" x2="88" y2="25" stroke="white" stroke-width="2" opacity="0.7" /> <line x1="32" y1="85" x2="32" y2="95" stroke="white" stroke-width="2" opacity="0.7" /> <line x1="88" y1="85" x2="88" y2="95" stroke="white" stroke-width="2" opacity="0.7" />
+      </svg>
+     </div>
+     <div>
+      انتظرونا قريباً
+     </div></h1><!-- النص الفرعي -->
+    <p id="subtitle" class="text-2xl text-white mb-16 opacity-90">بحلة جديدة</p><!-- معلومات التواصل -->
+    <div id="contact-container" class="bg-white bg-opacity-10 backdrop-blur-xl rounded-3xl p-10 inline-block border border-white border-opacity-20 shadow-2xl" style="background: linear-gradient(135deg, rgba(255,255,255,0.15), rgba(255,255,255,0.05)); box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);">
+     <p id="contact-label" class="text-white text-xl mb-6 opacity-95 font-medium">للتواصل ( واتساب )</p><a id="phone-link" href="https://wa.me/966573514853" target="_blank" rel="noopener noreferrer" class="phone-link inline-flex items-center gap-3 bg-white px-10 py-5 rounded-2xl text-xl font-semibold shadow-xl hover:shadow-2xl" style="color: #18325B; backdrop-filter: blur(10px);">
+      <svg class="w-7 h-7 phone-icon" fill="currentColor" viewbox="0 0 20 20"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
+      </svg><span id="phone-number">0573514853</span> </a>
+    </div><!-- حقوق النشر -->
+    <div class="mt-12 text-white opacity-75">
+     <p id="company-name" class="text-lg font-semibold mb-2">شركة وجاد التنمية</p>
+     <p id="copyright" class="text-sm">جميع الحقوق محفوظة © 2026</p>
+    </div>
+   </div>
+  </div>
+  <script>
+        const defaultConfig = {
+            background_color: '#18325B',
+            secondary_color: '#24ABAD',
+            text_color: '#ffffff',
+            button_color: '#ffffff',
+            button_text_color: '#18325B',
+            font_family: 'IBM Plex Sans Arabic',
+            font_size: 16,
+            main_title: 'انتظرونا قريباً',
+            subtitle: 'بحلة جديدة',
+            contact_label: 'للتواصل ( واتساب )',
+            phone_number: '0573514853',
+            company_name: 'شركة وجاد التنمية',
+            copyright: 'جميع الحقوق محفوظة © 2026'
+        };
+
+        async function onConfigChange(config) {
+            const mainTitle = document.querySelector('#main-title > div:last-child');
+            const subtitle = document.getElementById('subtitle');
+            const contactLabel = document.getElementById('contact-label');
+            const phoneNumber = document.getElementById('phone-number');
+            const phoneLink = document.getElementById('phone-link');
+            const appContainer = document.getElementById('app');
+            const companyName = document.getElementById('company-name');
+            const copyright = document.getElementById('copyright');
+
+            // تحديث النصوص
+            mainTitle.textContent = config.main_title || defaultConfig.main_title;
+            subtitle.textContent = config.subtitle || defaultConfig.subtitle;
+            contactLabel.textContent = config.contact_label || defaultConfig.contact_label;
+            phoneNumber.textContent = config.phone_number || defaultConfig.phone_number;
+            companyName.textContent = config.company_name || defaultConfig.company_name;
+            copyright.textContent = config.copyright || defaultConfig.copyright;
+
+            // تحديث رابط واتساب
+            const cleanPhone = (config.phone_number || defaultConfig.phone_number).replace(/\s/g, '').replace(/^0/, '966');
+            phoneLink.href = `https://wa.me/${cleanPhone}`;
+
+            // تحديث الألوان
+            const primaryColor = config.background_color || defaultConfig.background_color;
+            const secondaryColor = config.secondary_color || defaultConfig.secondary_color;
+            const textColor = config.text_color || defaultConfig.text_color;
+            const buttonColor = config.button_color || defaultConfig.button_color;
+            const buttonTextColor = config.button_text_color || defaultConfig.button_text_color;
+
+            appContainer.style.background = `linear-gradient(135deg, ${primaryColor} 0%, ${secondaryColor} 100%)`;
+            appContainer.style.backgroundSize = '200% 200%';
+            mainTitle.style.color = textColor;
+            subtitle.style.color = textColor;
+            contactLabel.style.color = textColor;
+            companyName.style.color = textColor;
+            copyright.style.color = textColor;
+            phoneLink.style.backgroundColor = buttonColor;
+            phoneLink.style.color = buttonTextColor;
+
+            // تحديث الخط
+            const customFont = config.font_family || defaultConfig.font_family;
+            const baseFontStack = 'sans-serif';
+            document.body.style.fontFamily = `${customFont}, ${baseFontStack}`;
+
+            // تحديث حجم الخط
+            const baseSize = config.font_size || defaultConfig.font_size;
+            mainTitle.style.fontSize = `${baseSize * 3.75}px`;
+            subtitle.style.fontSize = `${baseSize * 1.5}px`;
+            contactLabel.style.fontSize = `${baseSize * 1.25}px`;
+            phoneNumber.style.fontSize = `${baseSize * 1.25}px`;
+            companyName.style.fontSize = `${baseSize * 1.125}px`;
+            copyright.style.fontSize = `${baseSize * 0.875}px`;
+        }
+
+        function mapToCapabilities(config) {
+            return {
+                recolorables: [
+                    {
+                        get: () => config.background_color || defaultConfig.background_color,
+                        set: (value) => {
+                            config.background_color = value;
+                            window.elementSdk.setConfig({ background_color: value });
+                        }
+                    },
+                    {
+                        get: () => config.secondary_color || defaultConfig.secondary_color,
+                        set: (value) => {
+                            config.secondary_color = value;
+                            window.elementSdk.setConfig({ secondary_color: value });
+                        }
+                    },
+                    {
+                        get: () => config.text_color || defaultConfig.text_color,
+                        set: (value) => {
+                            config.text_color = value;
+                            window.elementSdk.setConfig({ text_color: value });
+                        }
+                    },
+                    {
+                        get: () => config.button_color || defaultConfig.button_color,
+                        set: (value) => {
+                            config.button_color = value;
+                            window.elementSdk.setConfig({ button_color: value });
+                        }
+                    },
+                    {
+                        get: () => config.button_text_color || defaultConfig.button_text_color,
+                        set: (value) => {
+                            config.button_text_color = value;
+                            window.elementSdk.setConfig({ button_text_color: value });
+                        }
+                    }
+                ],
+                borderables: [],
+                fontEditable: {
+                    get: () => config.font_family || defaultConfig.font_family,
+                    set: (value) => {
+                        config.font_family = value;
+                        window.elementSdk.setConfig({ font_family: value });
+                    }
+                },
+                fontSizeable: {
+                    get: () => config.font_size || defaultConfig.font_size,
+                    set: (value) => {
+                        config.font_size = value;
+                        window.elementSdk.setConfig({ font_size: value });
+                    }
+                }
+            };
+        }
+
+        function mapToEditPanelValues(config) {
+            return new Map([
+                ['main_title', config.main_title || defaultConfig.main_title],
+                ['subtitle', config.subtitle || defaultConfig.subtitle],
+                ['contact_label', config.contact_label || defaultConfig.contact_label],
+                ['phone_number', config.phone_number || defaultConfig.phone_number],
+                ['company_name', config.company_name || defaultConfig.company_name],
+                ['copyright', config.copyright || defaultConfig.copyright]
+            ]);
+        }
+
+        if (window.elementSdk) {
+            window.elementSdk.init({
+                defaultConfig,
+                onConfigChange,
+                mapToCapabilities,
+                mapToEditPanelValues
+            });
+        }
+    </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9b91760fb54c941b',t:'MTc2NzYwMDIyOC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
