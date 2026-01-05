@@ -12,8 +12,8 @@
             box-sizing: border-box;
         }
         
-        * {
-            font-family: 'IBM Plex Sans Arabic', sans-serif;
+        *, body, html {
+            font-family: 'IBM Plex Sans Arabic', sans-serif !important;
         }
         
         .gradient-bg {
@@ -28,22 +28,6 @@
             }
             50% {
                 background-position: 100% 50%;
-            }
-        }
-        
-        .hourglass-animation {
-            animation: hourglass-flip 10s ease-in-out infinite;
-        }
-        
-        @keyframes hourglass-flip {
-            0%, 45% {
-                transform: rotate(0deg);
-            }
-            50%, 95% {
-                transform: rotate(180deg);
-            }
-            100% {
-                transform: rotate(360deg);
             }
         }
         
@@ -96,19 +80,16 @@
   <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
  </head>
  <body class="h-full">
-  <div id="app" class="gradient-bg h-full w-full flex items-center justify-center overflow-auto">
-   <div class="text-center px-8 py-12 fade-in"><!-- العنوان الرئيسي -->
-    <h1 id="main-title" class="text-6xl font-bold text-white mb-6">
-     <div class="inline-block hourglass-animation mb-4">
-      <svg class="w-24 h-24 mx-auto" viewbox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg"><!-- الإطار الخارجي للساعة --> <path d="M35 15 L85 15 L80 25 L40 25 Z" fill="white" opacity="0.95" stroke="white" stroke-width="1.5" /> <path d="M40 85 L35 95 L85 95 L80 85 Z" fill="white" opacity="0.95" stroke="white" stroke-width="1.5" /> <!-- الزجاج العلوي --> <path d="M40 25 L60 60 L80 25 Z" fill="white" opacity="0.3" stroke="white" stroke-width="1.5" /> <!-- الزجاج السفلي --> <path d="M60 60 L40 85 L80 85 Z" fill="white" opacity="0.85" stroke="white" stroke-width="1.5" /> <!-- الرمل العلوي --> <path d="M45 28 L60 55 L75 28 Z" fill="white" opacity="0.6" /> <!-- الرمل السفلي --> <ellipse cx="60" cy="82" rx="15" ry="5" fill="white" opacity="0.9" /> <!-- نقطة الرمل المتساقط --> <circle cx="60" cy="60" r="1.5" fill="white" opacity="0.8">
-        <animate attributename="cy" values="60;65;70;75;80;80;60" dur="3s" repeatcount="indefinite" />
-        <animate attributename="opacity" values="0.8;0.8;0.8;0.8;0;0;0.8" dur="3s" repeatcount="indefinite" />
-       </circle> <!-- خطوط زخرفية --> <line x1="32" y1="15" x2="32" y2="25" stroke="white" stroke-width="2" opacity="0.7" /> <line x1="88" y1="15" x2="88" y2="25" stroke="white" stroke-width="2" opacity="0.7" /> <line x1="32" y1="85" x2="32" y2="95" stroke="white" stroke-width="2" opacity="0.7" /> <line x1="88" y1="85" x2="88" y2="95" stroke="white" stroke-width="2" opacity="0.7" />
-      </svg>
-     </div>
-     <div>
-      انتظرونا قريباً
-     </div></h1><!-- النص الفرعي -->
+  <div id="app" class="gradient-bg h-full w-full flex items-center justify-center overflow-auto relative"><!-- الشعار في الزاوية اليمنى -->
+   <div class="absolute top-6 right-6"><img src="https://i.imgur.com/Bym41Pc.png" alt="شعار وجاد" class="w-48 h-auto" onerror="this.style.display='none'; this.alt='فشل تحميل الشعار';" style="filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));">
+   </div>
+   <div class="text-center px-8 py-12 fade-in"><!-- الساعة الحية -->
+    <div class="mb-8 flex flex-col items-center justify-center">
+     <svg width="160" height="160" viewbox="0 0 160 160" xmlns="http://www.w3.org/2000/svg"><!-- الدوائر الخارجية --> <circle cx="80" cy="80" r="75" fill="rgba(255,255,255,0.05)" stroke="white" stroke-width="3" opacity="0.4" /> <circle cx="80" cy="80" r="70" fill="rgba(255,255,255,0.1)" stroke="white" stroke-width="2" opacity="0.6" /> <!-- علامات الساعات --> <circle cx="80" cy="15" r="4" fill="white" opacity="0.9" /> <circle cx="80" cy="145" r="4" fill="white" opacity="0.9" /> <circle cx="145" cy="80" r="4" fill="white" opacity="0.9" /> <circle cx="15" cy="80" r="4" fill="white" opacity="0.9" /> <circle cx="124" cy="36" r="3" fill="white" opacity="0.7" /> <circle cx="124" cy="124" r="3" fill="white" opacity="0.7" /> <circle cx="36" cy="36" r="3" fill="white" opacity="0.7" /> <circle cx="36" cy="124" r="3" fill="white" opacity="0.7" /> <!-- عقرب ال��واني فقط --> <line id="second-hand" x1="80" y1="80" x2="80" y2="20" stroke="white" stroke-width="3" stroke-linecap="round" opacity="0.95" /> <!-- المركز --> <circle cx="80" cy="80" r="6" fill="white" opacity="0.95" /> <circle cx="80" cy="80" r="3" fill="#24ABAD" />
+     </svg><!-- عرض الوقت الرقمي -->
+     <div id="digital-time" class="text-white text-2xl font-semibold mt-4 opacity-90"></div>
+    </div><!-- العنوان الرئيسي -->
+    <h1 id="main-title" class="text-6xl font-bold text-white mb-6">انتظرون���� قريباً</h1><!-- النص الفرعي -->
     <p id="subtitle" class="text-2xl text-white mb-16 opacity-90">بحلة جديدة</p><!-- معلومات التواصل -->
     <div id="contact-container" class="bg-white bg-opacity-10 backdrop-blur-xl rounded-3xl p-10 inline-block border border-white border-opacity-20 shadow-2xl" style="background: linear-gradient(135deg, rgba(255,255,255,0.15), rgba(255,255,255,0.05)); box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);">
      <p id="contact-label" class="text-white text-xl mb-6 opacity-95 font-medium">للتواصل ( واتساب )</p><a id="phone-link" href="https://wa.me/966573514853" target="_blank" rel="noopener noreferrer" class="phone-link inline-flex items-center gap-3 bg-white px-10 py-5 rounded-2xl text-xl font-semibold shadow-xl hover:shadow-2xl" style="color: #18325B; backdrop-filter: blur(10px);">
@@ -139,7 +120,7 @@
         };
 
         async function onConfigChange(config) {
-            const mainTitle = document.querySelector('#main-title > div:last-child');
+            const mainTitle = document.getElementById('main-title');
             const subtitle = document.getElementById('subtitle');
             const contactLabel = document.getElementById('contact-label');
             const phoneNumber = document.getElementById('phone-number');
@@ -268,6 +249,37 @@
                 mapToEditPanelValues
             });
         }
+
+        // تحديث الساعة الحية
+        function updateClock() {
+            const now = new Date();
+            const hours = now.getHours();
+            const minutes = now.getMinutes();
+            const seconds = now.getSeconds();
+            
+            // حساب زاوية عقرب الثواني
+            const secondAngle = (seconds * 6) - 90; // 6 درجات لكل ثانية
+            
+            // تطبيق الدوران على عقرب الثواني
+            const secondHand = document.getElementById('second-hand');
+            
+            if (secondHand) {
+                secondHand.setAttribute('transform', `rotate(${secondAngle}, 80, 80)`);
+            }
+            
+            // عرض الوقت الرقمي
+            const digitalTime = document.getElementById('digital-time');
+            if (digitalTime) {
+                const formattedHours = hours.toString().padStart(2, '0');
+                const formattedMinutes = minutes.toString().padStart(2, '0');
+                const formattedSeconds = seconds.toString().padStart(2, '0');
+                digitalTime.textContent = `${formattedHours}:${formattedMinutes}:${formattedSeconds}`;
+            }
+        }
+        
+        // تحديث الساعة كل ثانية
+        updateClock();
+        setInterval(updateClock, 1000);
     </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9b91760fb54c941b',t:'MTc2NzYwMDIyOC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9b92cd0cc7279a7c',t:'MTc2NzYxNDI3Ni4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
